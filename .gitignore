@@ -3,6 +3,3 @@
 *.iml
 out
 gen
-
-frontend/node_modules
-backend/node_modules
