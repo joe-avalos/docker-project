@@ -7,7 +7,13 @@ const MONGO_PORT = process.env.MONGO_PORT || 27017
 const MONGO_URL = process.env.MONGO_URL
 const MONGODB = `mongodb://${MONGO_URL}:${MONGO_PORT}`
 
-mongoose.connect(MONGODB, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(
+  MONGODB,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  })
 const db = mongoose.connection
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))

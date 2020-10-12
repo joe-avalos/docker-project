@@ -1,21 +1,18 @@
 import express from 'express'
+import {
+  findAllNotes,
+  findNoteById,
+  createNote,
+  updateNoteById,
+  deleteNoteById,
+} from '../controllers/notes.controller.js'
 
 const router = express.Router()
 
-router.get('/notes', (req, res, next) => {
-  res.send('Hello from notes')
-})
-router.get('/notes/:id', (req, res, next) => {
-  res.send(`You requested note ${req.params.id}`)
-})
-router.post('/notes', (req, res, next) => {
-
-})
-router.delete('/notes/:id', (req, res, next) => {
-
-})
-router.patch('/notes/:id', (req, res, next) => {
-
-})
+router.get('/notes', findAllNotes)
+router.get('/notes/:id', findNoteById)
+router.post('/notes', createNote)
+router.delete('/notes/:id', deleteNoteById)
+router.patch('/notes/:id', updateNoteById)
 
 export default router

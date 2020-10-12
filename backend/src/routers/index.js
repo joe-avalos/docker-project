@@ -1,6 +1,7 @@
 import cors from 'cors'
+import bodyParser from 'body-parser'
 
-import healthCheck from './health.routers.js'
+import healthRouter from './health.routers.js'
 import notesRouter from './notes.routers.js'
 
 const REACT_URL = process.env.REACT_URL || 'localhost'
@@ -14,7 +15,8 @@ const corsOptions = {
 
 function initRouters(app) {
   app.use(cors(corsOptions))
-  app.use(healthCheck)
+  app.use(bodyParser.json())
+  app.use(healthRouter)
   app.use(notesRouter)
 }
 
