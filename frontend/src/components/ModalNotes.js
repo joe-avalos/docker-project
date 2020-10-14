@@ -4,12 +4,12 @@ import NotesForm from './NotesForm'
 import ModalFooter from './ModalFooter'
 import ModalContent from './ModalContent'
 
-const ModalNotes = () => {
+const ModalNotes = ({handleAdd, handleEdit}) => {
   return <Modal>
     <ModalContent>
       <NotesForm/>
     </ModalContent>
-    <ModalFooter/>
+    <ModalFooter handleAdd={handleAdd} handleEdit={handleEdit}/>
   </Modal>
 }
 
